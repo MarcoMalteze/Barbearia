@@ -1,0 +1,2036 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title id="page-title">Barbearia Premium | Cortes Masculinos, Barba & Grooming</title>
+  <meta name="description" id="meta-description" content="Barbearia especializada em cortes masculinos modernos, degradê navalhado, barba com toalha quente e cuidado masculino de alto padrão. Agende seu horário pelo WhatsApp." />
+  <meta name="theme-color" content="#090A0F" />
+
+  <!-- Google Fonts: Cinzel (Display Masculino Clássico/Moderno) + Plus Jakarta Sans & Inter (Alta Legibilidade Mobile) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS 3.4.17 -->
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Cinzel', 'serif'],
+            sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+          },
+          colors: {
+            obsidian: '#090A0F',
+            charcoal: '#11131A',
+            surface: '#171A24',
+            gold: {
+              DEFAULT: '#D4AF37',
+              light: '#F3D068',
+              dark: '#AA8218',
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+    body {
+      background-color: #090A0F;
+      color: #F8FAFC;
+      font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+      overflow-x: hidden;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .font-display {
+      font-family: 'Cinzel', serif;
+    }
+    /* Textura sutil e gradientes premium */
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #FFF3B0 0%, #D4AF37 50%, #AA8218 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gold-gradient-bg {
+      background: linear-gradient(135deg, #E5C158 0%, #D4AF37 55%, #B38728 100%);
+    }
+    .gold-gradient-bg:hover {
+      background: linear-gradient(135deg, #F3D068 0%, #E5C158 55%, #C69932 100%);
+    }
+    .card-luxury {
+      background: linear-gradient(180deg, rgba(23, 26, 36, 0.92) 0%, rgba(15, 17, 24, 0.98) 100%);
+      border: 1px solid rgba(212, 175, 55, 0.16);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+    .card-luxury:hover {
+      border-color: rgba(212, 175, 55, 0.45);
+      box-shadow: 0 14px 34px -10px rgba(0, 0, 0, 0.7), 0 0 20px -5px rgba(212, 175, 55, 0.12);
+    }
+    /* Esconder barra de rolagem em filtros horizontais mobile mantendo toque suave */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.55); }
+      50% { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+    }
+    .whatsapp-pulse {
+      animation: pulseGlow 2.4s infinite;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-amber-500 selection:text-black pb-20 md:pb-0">
+
+  <!-- =========================================================================
+       BARRA DE PROPOSTA COMERCIAL / EDIÇÃO RÁPIDA (PODE SER OCULTADA)
+       ========================================================================= -->
+  <div id="proposal-banner" class="bg-gradient-to-r from-[#141722] via-[#1C1F2E] to-[#141722] border-b border-amber-500/25 px-3 py-2 text-xs text-slate-200 relative z-50">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-semibold border border-amber-500/30">
+        <!--  <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Proposta Comercial Interativa  -->
+        </span>
+        <span class="text-slate-300 hidden sm:inline">
+          Vinculado ao Google Maps (<a href="https://maps.app.goo.gl/z1PtXUDnDcrpzAR69" target="_blank" rel="noopener noreferrer" class="text-amber-400 underline hover:text-amber-300">maps.app.goo.gl/z1PtXUDnDcrpzAR69</a>).
+        </span>
+      </div>
+      <div class="flex items-center gap-2 ml-auto">
+        <button type="button" id="btn-open-customizer-top" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-amber-500/15 hover:bg-amber-500/25 text-amber-300 border border-amber-500/30 font-semibold transition">
+          <i data-lucide="sliders-horizontal" class="w-3.5 h-3.5"></i>
+          <span>Editar Dados da Barbearia</span>
+        </button>
+        <button type="button" id="btn-close-banner" class="p-1 text-slate-400 hover:text-white rounded" aria-label="Fechar aviso">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       A. CABEÇALHO FIXO (PRIORIZADO PARA MOBILE E DESKTOP)
+       ========================================================================= -->
+  <header id="topo" class="sticky top-0 z-40 bg-[#090A0F]/95 backdrop-blur-md border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-3">
+      <!-- Identidade / Logo -->
+      <a href="#inicio" class="flex items-center gap-3 group focus:outline-none">
+        <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-amber-400/20 via-amber-500/10 to-transparent border border-amber-500/40 flex items-center justify-center shadow-inner group-hover:border-amber-400 transition">
+          <i data-lucide="scissors" class="w-5 h-5 sm:w-6 sm:h-6 text-amber-400 -rotate-45 group-hover:rotate-0 transition-transform duration-300"></i>
+        </div>
+        <div class="flex flex-col">
+          <span id="header-brand-name" class="font-display font-bold text-base sm:text-lg tracking-wider text-white leading-tight">
+            BARBEARIA PREMIUM
+          </span>
+          <span id="header-brand-city" class="text-[11px] uppercase tracking-[0.2em] text-amber-400/90 font-medium">
+            Grooming & Estilo Masculino
+          </span>
+        </div>
+      </a>
+
+      <!-- Navegação Desktop -->
+      <nav aria-label="Menu principal" class="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-300">
+        <a href="#inicio" class="hover:text-amber-400 transition py-1">Início</a>
+        <a href="#sobre" class="hover:text-amber-400 transition py-1">Sobre</a>
+        <a href="#servicos" class="hover:text-amber-400 transition py-1">Serviços</a>
+        <a href="#galeria" class="hover:text-amber-400 transition py-1">Galeria</a>
+        <a href="#avaliacoes" class="hover:text-amber-400 transition py-1">Avaliações</a>
+        <a href="#localizacao" class="hover:text-amber-400 transition py-1">Localização</a>
+        <a href="#horarios" class="hover:text-amber-400 transition py-1">Horários</a>
+      </nav>
+
+      <!-- Ações Rápidas no Topo -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <!-- Botão Agendar (Visível em todas as telas, compacto no mobile) -->
+        <button type="button" id="btn-header-book" class="gold-gradient-bg text-obsidian font-bold text-xs sm:text-sm px-3.5 sm:px-5 py-2.5 rounded-lg shadow-lg shadow-amber-500/15 flex items-center gap-1.5 active:scale-95 transition">
+          <i data-lucide="calendar-check" class="w-4 h-4 stroke-[2.5]"></i>
+          <span>Agendar</span>
+          <span class="hidden sm:inline">Horário</span>
+        </button>
+
+        <!-- Botão Menu Mobile (Alvo de toque 44x44px para ergonomia no celular) -->
+        <button type="button" id="btn-mobile-menu" class="lg:hidden w-11 h-11 rounded-lg bg-white/5 hover:bg-white/10 border border-white/15 flex items-center justify-center text-white active:scale-95 transition" aria-label="Abrir menu de navegação" aria-expanded="false">
+          <i data-lucide="menu" id="icon-mobile-menu" class="w-6 h-6 text-amber-400"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Drawer de Navegação Mobile (Visível ao tocar no botão de menu) -->
+    <div id="mobile-menu-drawer" class="hidden lg:hidden bg-[#0E1017] border-b border-amber-500/30 px-4 pt-3 pb-6 shadow-2xl">
+      <div class="flex flex-col space-y-1 text-base font-medium text-slate-200">
+        <a href="#inicio" class="mobile-nav-link flex items-center justify-between px-3 py-3 rounded-lg hover:bg-white/5 active:bg-amber-500/15">
+          <span class="flex items-center gap-3"><i data-lucide="home" class="w-4 h-4 text-amber-400"></i> Início</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500"></i>
+        </a>
+        <a href="#sobre" class="mobile-nav-link flex items-center justify-between px-3 py-3 rounded-lg hover:bg-white/5 active:bg-amber-500/15">
+          <span class="flex items-center gap-3"><i data-lucide="award" class="w-4 h-4 text-amber-400"></i> Sobre a Barbearia</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500"></i>
+        </a>
+        <a href="#servicos" class="mobile-nav-link flex items-center justify-between px-3 py-3 rounded-lg hover:bg-white/5 active:bg-amber-500/15">
+          <span class="flex items-center gap-3"><i data-lucide="scissors" class="w-4 h-4 text-amber-400"></i> Serviços e Preços</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500"></i>
+        </a>
+        <a href="#galeria" class="mobile-nav-link flex items-center justify-between px-3 py-3 rounded-lg hover:bg-white/5 active:bg-amber-500/15">
+          <span class="flex items-center gap-3"><i data-lucide="image" class="w-4 h-4 text-amber-400"></i> Galeria de Fotos</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500"></i>
+        </a>
+        <a href="#avaliacoes" class="mobile-nav-link flex items-center justify-between px-3 py-3 rounded-lg hover:bg-white/5 active:bg-amber-500/15">
+          <span class="flex items-center gap-3"><i data-lucide="star" class="w-4 h-4 text-amber-400"></i> Avaliações de Clientes</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500"></i>
+        </a>
+        <a href="#localizacao" class="mobile-nav-link flex items-center justify-between px-3 py-3 rounded-lg hover:bg-white/5 active:bg-amber-500/15">
+          <span class="flex items-center gap-3"><i data-lucide="map-pin" class="w-4 h-4 text-amber-400"></i> Localização e Como Chegar</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500"></i>
+        </a>
+        <a href="#horarios" class="mobile-nav-link flex items-center justify-between px-3 py-3 rounded-lg hover:bg-white/5 active:bg-amber-500/15">
+          <span class="flex items-center gap-3"><i data-lucide="clock" class="w-4 h-4 text-amber-400"></i> Horário de Funcionamento</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500"></i>
+        </a>
+      </div>
+
+      <div class="mt-4 pt-4 border-t border-white/10 grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+        <button type="button" id="btn-drawer-book" class="w-full gold-gradient-bg text-obsidian font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2 shadow-lg">
+          <i data-lucide="message-circle" class="w-5 h-5"></i>
+          <span>Agendar pelo WhatsApp</span>
+        </button>
+        <a id="link-drawer-maps" href="https://maps.app.goo.gl/z1PtXUDnDcrpzAR69" target="_blank" rel="noopener noreferrer" class="w-full bg-white/5 hover:bg-white/10 text-white font-semibold py-3 px-4 rounded-xl border border-white/15 flex items-center justify-center gap-2">
+          <i data-lucide="navigation" class="w-4 h-4 text-amber-400"></i>
+          <span>Abrir Rota no Google Maps</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- =========================================================================
+         B. HERO SECTION (IMPACTO VISUAL + FOCO EM CONVERSÃO NO CELULAR)
+         ========================================================================= -->
+    <section id="inicio" class="relative min-h-[86vh] sm:min-h-[88vh] flex items-center overflow-hidden">
+      <!-- Imagem de Fundo de Alta Qualidade -->
+      <div class="absolute inset-0 z-0">
+        <img
+          src="assets/img/hero.jpg"
+          alt="Ambiente sofisticado da barbearia"
+          class="w-full h-full object-cover object-center scale-105 transition-transform duration-1000"
+        />
+        <!-- Overlay em múltiplas camadas para leitura nítida no celular -->
+        <div class="absolute inset-0 bg-gradient-to-t from-[#090A0F] via-[#090A0F]/85 to-[#090A0F]/65"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-[#090A0F]/95 via-[#090A0F]/70 to-transparent"></div>
+      </div>
+
+      <!-- Conteúdo Principal Hero -->
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 w-full">
+        <div class="max-w-3xl">
+          <!-- Badge Superior -->
+          <div class="inline-flex flex-wrap items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-amber-500/35 mb-5">
+            <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
+            <span id="hero-badge-text" class="text-xs sm:text-sm font-semibold tracking-wide text-amber-300 uppercase">
+              Tradição, Estilo & Precisão Masculina
+            </span>
+          </div>
+
+          <!-- Nome e Frase de Impacto -->
+          <h1 class="font-display font-extrabold text-3xl sm:text-5xl lg:text-6xl text-white leading-[1.12] tracking-tight mb-4">
+            <span id="hero-title-main" class="block">BARBEARIA PREMIUM</span>
+            <span id="hero-title-highlight" class="gold-gradient-text block mt-1 text-2xl sm:text-4xl lg:text-5xl">
+              Excelência em cada detalhe do seu visual.
+            </span>
+          </h1>
+
+          <!-- Breve descrição dos diferenciais -->
+          <p id="hero-description" class="text-base sm:text-lg text-slate-200 leading-relaxed mb-8 max-w-2xl font-normal">
+            Cortes clássicos e modernos, degradê de alta precisão e barboterapia com toalha quente em um ambiente projetado para quem valoriza atendimento pontual e acabamento impecável.
+          </p>
+
+          <!-- Botões Principais (100% largura no celular para clique fácil com o polegar) -->
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4 mb-8">
+            <button type="button" id="btn-hero-book" class="gold-gradient-bg text-obsidian font-extrabold text-base sm:text-lg px-7 py-4 rounded-xl shadow-xl shadow-amber-500/20 flex items-center justify-center gap-2.5 active:scale-[0.99] transition">
+              <i data-lucide="calendar" class="w-5 h-5 stroke-[2.5]"></i>
+              <span>Agendar horário</span>
+            </button>
+            <a href="#servicos" class="bg-white/10 hover:bg-white/15 backdrop-blur-sm text-white font-semibold text-base sm:text-lg px-7 py-4 rounded-xl border border-white/20 flex items-center justify-center gap-2 active:scale-[0.99] transition">
+              <span>Conheça nossos serviços</span>
+              <i data-lucide="arrow-down-right" class="w-5 h-5 text-amber-400"></i>
+            </a>
+          </div>
+
+          <!-- Aviso transparente sobre imagem de referência -->
+          <div id="hero-ref-badge" class="inline-flex items-center gap-2 text-xs text-slate-400 bg-black/50 px-3 py-1.5 rounded-lg border border-white/10">
+            <i data-lucide="info" class="w-3.5 h-3.5 text-amber-400 shrink-0"></i>
+            <span>Ambientação visual de referência • Personalizável com as fotos oficiais do estabelecimento.</span>
+          </div>
+        </div>
+
+        <!-- Destaques Rápidos Mobile & Desktop -->
+        <div class="mt-10 sm:mt-14 grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-5">
+          <div class="card-luxury rounded-2xl p-4 sm:p-5 flex items-start gap-3.5">
+            <div class="w-11 h-11 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center shrink-0 text-amber-400">
+              <i data-lucide="scissors" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h2 class="font-bold text-white text-sm sm:text-base">Cortes & Degradê Preciso</h2>
+              <p class="text-xs sm:text-sm text-slate-300 mt-0.5">Técnicas atualizadas de visagismo, tesoura e máquina com acabamento na navalha.</p>
+            </div>
+          </div>
+
+          <div class="card-luxury rounded-2xl p-4 sm:p-5 flex items-start gap-3.5">
+            <div class="w-11 h-11 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center shrink-0 text-amber-400">
+              <i data-lucide="flame" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h2 class="font-bold text-white text-sm sm:text-base">Barba & Toalha Quente</h2>
+              <p class="text-xs sm:text-sm text-slate-300 mt-0.5">Alinhamento simétrico, espuma aquecida e hidratação pós-barba revigorante.</p>
+            </div>
+          </div>
+
+          <a id="card-hero-maps" href="https://maps.app.goo.gl/z1PtXUDnDcrpzAR69" target="_blank" rel="noopener noreferrer" class="card-luxury rounded-2xl p-4 sm:p-5 flex items-start gap-3.5 group">
+            <div class="w-11 h-11 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center shrink-0 text-amber-400 group-hover:bg-amber-400 group-hover:text-obsidian transition">
+              <i data-lucide="map-pin" class="w-5 h-5"></i>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center justify-between">
+                <h2 class="font-bold text-white text-sm sm:text-base group-hover:text-amber-300 transition">Fácil Acesso no Google Maps</h2>
+                <i data-lucide="external-link" class="w-4 h-4 text-amber-400"></i>
+              </div>
+              <p id="hero-location-short" class="text-xs sm:text-sm text-slate-300 mt-0.5">Toque para abrir a localização exata e traçar sua rota em tempo real.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         C. SOBRE A BARBEARIA (APRESENTAÇÃO E DIFERENCIAIS SEM INVENTAR HISTÓRIA)
+         ========================================================================= -->
+    <section id="sobre" class="py-16 sm:py-24 bg-charcoal border-t border-white/5 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          <!-- Coluna de Imagens (Composição Dupla Responsiva) -->
+          <div class="lg:col-span-6 grid grid-cols-2 gap-3.5 sm:gap-5 relative">
+            <div class="space-y-3.5 sm:space-y-5">
+              <div class="relative rounded-2xl overflow-hidden border border-amber-500/25 shadow-2xl">
+                <img
+                  src="assets/img/exec.jpg"
+                  alt="Corte executivo e alinhamento de barba"
+                  class="w-full h-52 sm:h-64 object-cover"
+                  loading="lazy"
+                />
+                <span class="absolute bottom-2 left-2 right-2 bg-black/75 backdrop-blur-sm text-[10px] text-slate-300 px-2.5 py-1 rounded border border-white/10 truncate">
+                  Imagem de referência • Visagismo
+                </span>
+              </div>
+              <div class="card-luxury rounded-2xl p-4 sm:p-5 border border-amber-500/30">
+                <div class="flex items-center gap-2 text-amber-400 font-bold text-sm mb-1">
+                  <i data-lucide="shield-check" class="w-4 h-4"></i>
+                  <span>Compromisso de Qualidade</span>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Materiais 100% higienizados, lâminas descartáveis a cada atendimento e produtos selecionados para saúde do couro cabeludo e da pele.
+                </p>
+              </div>
+            </div>
+
+            <div class="space-y-3.5 sm:space-y-5 pt-6 sm:pt-10">
+              <div class="card-luxury rounded-2xl p-4 sm:p-5 border border-amber-500/30">
+                <div class="flex items-center gap-2 text-amber-400 font-bold text-sm mb-1">
+                  <i data-lucide="clock" class="w-4 h-4"></i>
+                  <span>Respeito ao seu Tempo</span>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Atendimento organizado via WhatsApp para você escolher o melhor horário da sua rotina sem filas desnecessárias.
+                </p>
+              </div>
+              <div class="relative rounded-2xl overflow-hidden border border-amber-500/25 shadow-2xl">
+                <img
+                  src="assets/img/tools.jpg"
+                  alt="Bancada e ferramentas profissionais de barbearia"
+                  class="w-full h-52 sm:h-64 object-cover"
+                  loading="lazy"
+                />
+                <span class="absolute bottom-2 left-2 right-2 bg-black/75 backdrop-blur-sm text-[10px] text-slate-300 px-2.5 py-1 rounded border border-white/10 truncate">
+                  Imagem de referência • Bancada
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Coluna de Texto Sobre -->
+          <div class="lg:col-span-6">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/25 text-amber-400 text-xs font-bold uppercase tracking-widest mb-3">
+              <span>Sobre o Estabelecimento</span>
+            </div>
+            <h2 class="font-display font-bold text-2xl sm:text-4xl text-white leading-tight mb-5">
+              Mais que um corte de cabelo: uma experiência de <span class="gold-gradient-text">cuidado e confiança</span>.
+            </h2>
+            <p id="about-paragraph-1" class="text-slate-300 text-base leading-relaxed mb-4">
+              Nossa proposta é unir a arte da barbearia clássica às tendências mais atuais do estilo masculino. Aqui, cada atendimento começa entendendo a sua preferência, o caimento do seu cabelo e o desenho ideal para a sua barba.
+            </p>
+            <p id="about-paragraph-2" class="text-slate-300 text-base leading-relaxed mb-6">
+              Seja para manter o corte sempre alinhado para o trabalho, preparar o visual para uma ocasião importante ou relaxar durante um ritual completo de barba, oferecemos um ambiente acolhedor, masculino e focado na sua satisfação.
+            </p>
+
+            <!-- Pilares e Diferenciais -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-8">
+              <div class="flex items-start gap-3 bg-white/[0.03] p-3.5 rounded-xl border border-white/10">
+                <i data-lucide="check-circle-2" class="w-5 h-5 text-amber-400 shrink-0 mt-0.5"></i>
+                <div>
+                  <h3 class="text-sm font-bold text-white">Atendimento Personalizado</h3>
+                  <p class="text-xs text-slate-400 mt-0.5">Orientação sobre o corte e acabamento que mais valorizam seu rosto.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 bg-white/[0.03] p-3.5 rounded-xl border border-white/10">
+                <i data-lucide="check-circle-2" class="w-5 h-5 text-amber-400 shrink-0 mt-0.5"></i>
+                <div>
+                  <h3 class="text-sm font-bold text-white">Ambiente Climatizado</h3>
+                  <p class="text-xs text-slate-400 mt-0.5">Conforto do início ao fim para você fazer uma pausa na correria do dia.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 bg-white/[0.03] p-3.5 rounded-xl border border-white/10">
+                <i data-lucide="check-circle-2" class="w-5 h-5 text-amber-400 shrink-0 mt-0.5"></i>
+                <div>
+                  <h3 class="text-sm font-bold text-white">Produtos de Alta Performance</h3>
+                  <p class="text-xs text-slate-400 mt-0.5">Pomadas, óleos e balms que garantem fixação e hidratação duradoura.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 bg-white/[0.03] p-3.5 rounded-xl border border-white/10">
+                <i data-lucide="check-circle-2" class="w-5 h-5 text-amber-400 shrink-0 mt-0.5"></i>
+                <div>
+                  <h3 class="text-sm font-bold text-white">Agendamento Direto</h3>
+                  <p class="text-xs text-slate-400 mt-0.5">Sem cadastros complexos: chame direto no WhatsApp com sua preferência.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-4">
+              <button type="button" id="btn-about-book" class="gold-gradient-bg text-obsidian font-bold px-6 py-3.5 rounded-xl shadow-lg flex items-center gap-2 active:scale-95 transition">
+                <i data-lucide="calendar-plus" class="w-5 h-5"></i>
+                <span>Reservar meu horário</span>
+              </button>
+              <a href="https://maps.app.goo.gl/z1PtXUDnDcrpzAR69" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-amber-400 hover:text-amber-300 flex items-center gap-1.5 py-2">
+                <i data-lucide="map" class="w-4 h-4"></i>
+                <span>Ver perfil no Google Maps</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         D. SERVIÇOS E PREÇOS (COM FILTRO E AGENDAMENTO DIRETO POR SERVIÇO)
+         ========================================================================= -->
+    <section id="servicos" class="py-16 sm:py-24 bg-obsidian border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Cabeçalho da Seção -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/25 text-amber-400 text-xs font-bold uppercase tracking-widest mb-3">
+              <span>Catálogo de Atendimento</span>
+            </div>
+            <h2 class="font-display font-bold text-2xl sm:text-4xl text-white">
+              Nossos <span class="gold-gradient-text">Serviços</span>
+            </h2>
+            <p class="text-slate-300 text-sm sm:text-base mt-2 max-w-2xl">
+              Selecione o atendimento desejado para iniciar o agendamento já com a mensagem pronta para o WhatsApp. Os valores abaixo estão configurados para consulta ou atualização imediata.
+            </p>
+          </div>
+
+          <!-- Filtros de Categoria (Deslizável no celular) -->
+          <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1" role="tablist" aria-label="Filtrar serviços">
+            <button type="button" data-service-filter="todos" class="service-filter-btn shrink-0 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-amber-400 text-obsidian transition">
+              Todos
+            </button>
+            <button type="button" data-service-filter="corte" class="service-filter-btn shrink-0 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white/5 text-slate-300 hover:bg-white/10 border border-white/10 transition">
+              Cortes
+            </button>
+            <button type="button" data-service-filter="barba" class="service-filter-btn shrink-0 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white/5 text-slate-300 hover:bg-white/10 border border-white/10 transition">
+              Barba
+            </button>
+            <button type="button" data-service-filter="combo" class="service-filter-btn shrink-0 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white/5 text-slate-300 hover:bg-white/10 border border-white/10 transition">
+              Combos
+            </button>
+            <button type="button" data-service-filter="acabamento" class="service-filter-btn shrink-0 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white/5 text-slate-300 hover:bg-white/10 border border-white/10 transition">
+              Acabamento & Tratamentos
+            </button>
+          </div>
+        </div>
+
+        <!-- Grid de Cards de Serviços (Renderizado dinamicamente via BARBERSHOP_CONFIG) -->
+        <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+          <!-- Preenchido via JS -->
+        </div>
+
+        <!-- Nota de transparência sobre valores -->
+        <div class="mt-8 p-4 rounded-2xl bg-white/[0.03] border border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <div class="flex items-center gap-3 text-xs sm:text-sm text-slate-300">
+            <i data-lucide="Sliders" class="w-4 h-4 text-amber-400 shrink-0"></i>
+            <span>
+              <strong>Nota sobre tabela de preços:</strong> Nenhum valor foi inventado. Para inserir os preços exatos da barbearia (ex: R$ 45,00), edite o arquivo <code class="text-amber-300 bg-black/40 px-1.5 py-0.5 rounded">BARBERSHOP_CONFIG</code> no VS Code ou use o botão ao lado.
+            </span>
+          </div>
+          <button type="button" id="btn-services-edit-prices" class="shrink-0 text-xs font-bold text-amber-400 hover:text-amber-300 underline">
+            Definir preços agora
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         E. GALERIA DE FOTOS (RESPONSIVA + LIGHTBOX INTERATIVO)
+         ========================================================================= -->
+    <section id="galeria" class="py-16 sm:py-24 bg-charcoal border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/25 text-amber-400 text-xs font-bold uppercase tracking-widest mb-3">
+              <span>Portfólio & Estrutura</span>
+            </div>
+            <h2 class="font-display font-bold text-2xl sm:text-4xl text-white">
+              Galeria de <span class="gold-gradient-text">Estilo & Ambiente</span>
+            </h2>
+            <p class="text-slate-300 text-sm sm:text-base mt-2 max-w-2xl">
+              Toque em qualquer imagem para ampliar em tela cheia. As fotos abaixo são referências visuais de alta definição prontas para receber o portfólio real da barbearia.
+            </p>
+          </div>
+
+          <!-- Filtro da Galeria -->
+          <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
+            <button type="button" data-gallery-filter="todos" class="gallery-filter-btn shrink-0 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-amber-400 text-obsidian transition">
+              Todas
+            </button>
+            <button type="button" data-gallery-filter="cortes" class="gallery-filter-btn shrink-0 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white/5 text-slate-300 hover:bg-white/10 border border-white/10 transition">
+              Cortes & Degradê
+            </button>
+            <button type="button" data-gallery-filter="barba" class="gallery-filter-btn shrink-0 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white/5 text-slate-300 hover:bg-white/10 border border-white/10 transition">
+              Barba & Navalha
+            </button>
+            <button type="button" data-gallery-filter="ambiente" class="gallery-filter-btn shrink-0 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white/5 text-slate-300 hover:bg-white/10 border border-white/10 transition">
+              Ambiente & Bancada
+            </button>
+          </div>
+        </div>
+
+        <!-- Grid da Galeria -->
+        <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <!-- Renderizado via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         F. AVALIAÇÕES DE CLIENTES (REPUTAÇÃO NO GOOGLE MAPS - SEM FALSOS DEPOIMENTOS)
+         ========================================================================= -->
+    <section id="avaliacoes" class="py-16 sm:py-24 bg-obsidian border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Cabeçalho + Card Oficial Google Maps -->
+        <div class="card-luxury rounded-3xl p-6 sm:p-10 mb-10 border border-amber-500/30">
+          <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+            <div class="space-y-2 max-w-2xl">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/15 text-amber-300 text-xs font-bold uppercase tracking-wider">
+                <i data-lucide="award" class="w-4 h-4"></i>
+                <span>Reputação Verificável no Google Maps</span>
+              </div>
+              <h2 class="font-display font-bold text-2xl sm:text-3xl text-white">
+                O que dizem nossos clientes
+              </h2>
+              <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                Prezamos pela transparência total: não utilizamos depoimentos fictícios. Confira diretamente as avaliações reais publicadas pelos clientes no perfil oficial do Google Maps ou sincronize os comentários verificados abaixo.
+              </p>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0">
+              <a
+                id="btn-reviews-google-maps"
+                href="https://maps.app.goo.gl/z1PtXUDnDcrpzAR69"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="gold-gradient-bg text-obsidian font-bold text-sm sm:text-base px-6 py-4 rounded-xl shadow-lg flex items-center justify-center gap-2 active:scale-95 transition"
+              >
+                <i data-lucide="external-link" class="w-5 h-5"></i>
+                <span>Ver Avaliações no Google Maps</span>
+              </a>
+              <button
+                type="button"
+                id="btn-reviews-customize"
+                class="bg-white/5 hover:bg-white/10 text-white font-semibold text-sm px-5 py-4 rounded-xl border border-white/15 flex items-center justify-center gap-2 transition"
+              >
+                <i data-lucide="plus-circle" class="w-4 h-4 text-amber-400"></i>
+                <span>Inserir Avaliações Reais</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lista de Cards de Avaliação (Renderizado via JS a partir de BARBERSHOP_CONFIG.reviews) -->
+        <div id="reviews-grid" class="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <!-- Renderizado via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         G. LOCALIZAÇÃO & H. HORÁRIO DE FUNCIONAMENTO (LADO A LADO NO DESKTOP, EMPILHADO NO CELULAR)
+         ========================================================================= -->
+    <section id="localizacao" class="py-16 sm:py-24 bg-charcoal border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/25 text-amber-400 text-xs font-bold uppercase tracking-widest mb-3">
+            <span>Onde Estamos & Atendimento</span>
+          </div>
+          <h2 class="font-display font-bold text-2xl sm:text-4xl text-white">
+            Localização e <span class="gold-gradient-text">Horários</span>
+          </h2>
+          <p class="text-slate-300 text-sm sm:text-base mt-2">
+            Acesse nossa localização oficial no Google Maps com um toque ou consulte os dias e horários de atendimento.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+          <!-- G. BLOCO DE LOCALIZAÇÃO E MAPA -->
+          <div class="lg:col-span-7 card-luxury rounded-3xl overflow-hidden flex flex-col justify-between">
+            <div class="p-6 sm:p-8">
+              <div class="flex items-start justify-between gap-4 mb-6">
+                <div>
+                  <span class="text-xs font-bold uppercase tracking-widest text-amber-400">Endereço e Contato</span>
+                  <h3 id="location-title" class="font-display font-bold text-xl sm:text-2xl text-white mt-1">
+                    Barbearia Premium
+                  </h3>
+                </div>
+                <span class="w-11 h-11 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
+                  <i data-lucide="map-pinned" class="w-5 h-5"></i>
+                </span>
+              </div>
+
+              <!-- Detalhes de Endereço e Telefone -->
+              <div class="space-y-4 mb-6">
+                <div class="flex items-start gap-3.5 bg-white/[0.03] p-4 rounded-2xl border border-white/10">
+                  <i data-lucide="map-pin" class="w-5 h-5 text-amber-400 shrink-0 mt-0.5"></i>
+                  <div class="flex-1">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-slate-400 block">Endereço</span>
+                    <p id="location-address-text" class="text-sm sm:text-base text-white font-medium mt-0.5">
+                      Localização vinculada ao link oficial do Google Maps (edite em BARBERSHOP_CONFIG para exibir rua, número e bairro).
+                    </p>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                  <div class="flex items-start gap-3 bg-white/[0.03] p-4 rounded-2xl border border-white/10">
+                    <i data-lucide="phone" class="w-5 h-5 text-amber-400 shrink-0 mt-0.5"></i>
+                    <div>
+                      <span class="text-xs font-semibold uppercase tracking-wider text-slate-400 block">Telefone / WhatsApp</span>
+                      <p id="location-phone-text" class="text-sm sm:text-base text-white font-medium mt-0.5">
+                        A definir no painel / código
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="flex items-start gap-3 bg-white/[0.03] p-4 rounded-2xl border border-white/10">
+                    <i data-lucide="share-2" class="w-5 h-5 text-amber-400 shrink-0 mt-0.5"></i>
+                    <div class="flex-1 min-w-0">
+                      <span class="text-xs font-semibold uppercase tracking-wider text-slate-400 block">Link Oficial Maps</span>
+                      <p class="text-xs sm:text-sm text-amber-300 font-medium mt-0.5 truncate">
+                        https://maps.app.goo.gl/z1PtXUDnDcrpzAR69
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Botões Como Chegar + Copiar Link -->
+              <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                <a
+                  id="btn-directions-maps"
+                  href="https://maps.app.goo.gl/z1PtXUDnDcrpzAR69"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex-1 gold-gradient-bg text-obsidian font-extrabold text-sm sm:text-base px-6 py-4 rounded-xl shadow-lg flex items-center justify-center gap-2 active:scale-95 transition"
+                >
+                  <i data-lucide="navigation" class="w-5 h-5"></i>
+                  <span>Como chegar (Abrir no Google Maps)</span>
+                </a>
+                <button
+                  type="button"
+                  id="btn-copy-maps-link"
+                  class="bg-white/5 hover:bg-white/10 text-white font-semibold text-sm px-5 py-4 rounded-xl border border-white/15 flex items-center justify-center gap-2 active:scale-95 transition"
+                >
+                  <i data-lucide="copy" class="w-4 h-4 text-amber-400"></i>
+                  <span>Copiar Link da Localização</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Mapa Incorporado / Preview Interativo -->
+            <div class="relative w-full h-64 sm:h-72 bg-[#0B0D14] border-t border-white/10">
+              <iframe
+                id="google-maps-iframe"
+                title="Mapa de Localização da Barbearia"
+                src="https://www.google.com/maps?q=Barbearia+Brasil&output=embed"
+                class="w-full h-full border-0 opacity-85 contrast-125 grayscale-[25%]"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+              <div class="absolute bottom-3 left-3 right-3 bg-obsidian/90 backdrop-blur-md border border-amber-500/30 rounded-xl p-3 flex items-center justify-between gap-3">
+                <div class="flex items-center gap-2 text-xs text-slate-200">
+                  <i data-lucide="compass" class="w-4 h-4 text-amber-400 shrink-0"></i>
+                  <span id="map-caption-text">Clique em "Como chegar" para abrir a rota GPS exata no seu aplicativo Google Maps.</span>
+                </div>
+                <a
+                  href="https://maps.app.goo.gl/z1PtXUDnDcrpzAR69"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="shrink-0 text-xs font-bold text-amber-400 hover:text-amber-300 underline"
+                >
+                  Abrir GPS
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- H. HORÁRIO DE FUNCIONAMENTO -->
+          <div id="horarios" class="lg:col-span-5 card-luxury rounded-3xl p-6 sm:p-8 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between gap-3 mb-6">
+                <div>
+                  <span class="text-xs font-bold uppercase tracking-widest text-amber-400">Programação Semanal</span>
+                  <h3 class="font-display font-bold text-xl sm:text-2xl text-white mt-1">
+                    Horário de Funcionamento
+                  </h3>
+                </div>
+                <span id="schedule-status-badge" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-500/15 text-amber-300 border border-amber-500/30">
+                  <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                  <span>Consultar Horário</span>
+                </span>
+              </div>
+
+              <!-- Lista de Dias e Horários (Renderizada dinamicamente via BARBERSHOP_CONFIG.hours) -->
+              <div id="hours-list" class="space-y-2.5 mb-6">
+                <!-- Preenchido via JS -->
+              </div>
+            </div>
+
+            <div class="pt-5 border-t border-white/10 space-y-3">
+              <p class="text-xs text-slate-400 leading-relaxed">
+                * Os horários podem sofrer alterações em feriados. Recomendamos confirmar disponibilidade ou reservar seu horário pelo WhatsApp.
+              </p>
+              <button
+                type="button"
+                id="btn-hours-book"
+                class="w-full bg-white/10 hover:bg-white/15 text-white font-bold text-sm py-3.5 px-5 rounded-xl border border-amber-500/30 flex items-center justify-center gap-2 transition"
+              >
+                <i data-lucide="message-square" class="w-4 h-4 text-amber-400"></i>
+                <span>Consultar disponibilidade hoje</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         I. CHAMADA FINAL PARA AGENDAMENTO (CTA DE ALTA CONVERSÃO)
+         ========================================================================= -->
+    <section class="py-16 sm:py-24 bg-obsidian relative overflow-hidden border-t border-white/5">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="rounded-3xl bg-gradient-to-br from-[#191C28] via-[#12141D] to-[#0C0E14] border border-amber-500/40 p-7 sm:p-12 text-center shadow-2xl relative overflow-hidden">
+          <!-- Brilho decorativo sutil -->
+          <div class="w-16 h-16 rounded-2xl bg-amber-500/15 border border-amber-500/35 flex items-center justify-center mx-auto mb-6 text-amber-400">
+            <i data-lucide="scissors" class="w-8 h-8"></i>
+          </div>
+
+          <h2 class="font-display font-extrabold text-2xl sm:text-4xl lg:text-5xl text-white leading-tight mb-4">
+            Pronto para elevar o padrão do seu <span class="gold-gradient-text">visual</span>?
+          </h2>
+          <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
+            Não deixe para a última hora. Escolha o seu serviço preferido e envie uma mensagem direta pelo WhatsApp para garantir o melhor horário da sua semana.
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 max-w-xl mx-auto">
+            <button
+              type="button"
+              id="btn-cta-final-book"
+              class="flex-1 gold-gradient-bg text-obsidian font-extrabold text-base sm:text-lg px-8 py-4 rounded-xl shadow-xl shadow-amber-500/20 flex items-center justify-center gap-2.5 active:scale-95 transition"
+            >
+              <i data-lucide="calendar-check-2" class="w-5 h-5 stroke-[2.5]"></i>
+              <span>Agendar Meu Horário Agora</span>
+            </button>
+            <a
+              href="https://maps.app.goo.gl/z1PtXUDnDcrpzAR69"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="bg-white/5 hover:bg-white/10 text-white font-semibold text-base px-6 py-4 rounded-xl border border-white/15 flex items-center justify-center gap-2 transition"
+            >
+              <i data-lucide="map-pin" class="w-5 h-5 text-amber-400"></i>
+              <span>Ver no Google Maps</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       J. RODAPÉ COMPLETO
+       ========================================================================= -->
+  <footer class="bg-[#06070A] border-t border-white/10 pt-14 pb-24 md:pb-12 text-slate-400 text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-10 border-b border-white/10">
+        <!-- Coluna 1: Marca -->
+        <div class="space-y-3">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-lg bg-amber-500/15 border border-amber-500/40 flex items-center justify-center text-amber-400">
+              <i data-lucide="scissors" class="w-5 h-5"></i>
+            </div>
+            <span id="footer-brand-name" class="font-display font-bold text-lg text-white tracking-wider">
+              BARBEARIA PREMIUM
+            </span>
+          </div>
+          <p id="footer-brand-desc" class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+            Cuidado masculino de alto padrão. Cortes clássicos e modernos, degradê navalhado e barboterapia com toalha quente.
+          </p>
+        </div>
+
+        <!-- Coluna 2: Navegação -->
+        <div>
+          <h3 class="text-white font-bold uppercase tracking-wider text-xs mb-3.5">Navegação Rápida</h3>
+          <ul class="space-y-2 text-xs sm:text-sm">
+            <li><a href="#inicio" class="hover:text-amber-400 transition">Início</a></li>
+            <li><a href="#sobre" class="hover:text-amber-400 transition">Sobre a Barbearia</a></li>
+            <li><a href="#servicos" class="hover:text-amber-400 transition">Serviços e Preços</a></li>
+            <li><a href="#galeria" class="hover:text-amber-400 transition">Galeria de Fotos</a></li>
+            <li><a href="#avaliacoes" class="hover:text-amber-400 transition">Avaliações de Clientes</a></li>
+            <li><a href="#localizacao" class="hover:text-amber-400 transition">Localização e Horários</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna 3: Contato e Endereço -->
+        <div>
+          <h3 class="text-white font-bold uppercase tracking-wider text-xs mb-3.5">Localização & Contato</h3>
+          <ul class="space-y-2.5 text-xs sm:text-sm">
+            <li class="flex items-start gap-2">
+              <i data-lucide="map-pin" class="w-4 h-4 text-amber-400 shrink-0 mt-0.5"></i>
+              <span id="footer-address">Vinculado ao Google Maps Oficial</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i data-lucide="phone" class="w-4 h-4 text-amber-400 shrink-0"></i>
+              <span id="footer-phone">WhatsApp configurável no painel</span>
+            </li>
+            <li>
+              <a href="https://maps.app.goo.gl/z1PtXUDnDcrpzAR69" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:underline inline-flex items-center gap-1 mt-1">
+                <span>Abrir localização no Google Maps</span>
+                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Coluna 4: Redes Sociais & Ação -->
+        <div>
+          <h3 class="text-white font-bold uppercase tracking-wider text-xs mb-3.5">Redes & Configuração</h3>
+          <div id="footer-socials" class="space-y-2 mb-4 text-xs sm:text-sm">
+            <!-- Preenchido dinamicamente se houver Instagram/redes -->
+          </div>
+          <button
+            type="button"
+            id="btn-footer-customizer"
+            class="w-full bg-white/5 hover:bg-white/10 text-amber-300 border border-amber-500/30 rounded-xl px-4 py-2.5 text-xs font-bold flex items-center justify-center gap-2 transition"
+          >
+            <i data-lucide="settings" class="w-4 h-4"></i>
+            <span>Personalizar Dados da Barbearia</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>© <span id="footer-year">2026</span> <span id="footer-copy-name">Barbearia Premium</span>. Todos os direitos reservados.</p>
+        <a href="#topo" class="text-slate-400 hover:text-amber-400 inline-flex items-center gap-1.5 transition">
+          <span>Voltar ao topo</span>
+          <i data-lucide="arrow-up" class="w-4 h-4"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       BARRA INFERIOR FIXA PARA CELULAR (EXPERIÊNCIA MOBILE-FIRST)
+       ========================================================================= -->
+  <div class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#0B0D14]/95 backdrop-blur-lg border-t border-amber-500/30 px-3 py-2.5 shadow-2xl">
+    <div class="grid grid-cols-12 gap-2 items-center max-w-md mx-auto">
+      <a
+        href="https://maps.app.goo.gl/z1PtXUDnDcrpzAR69"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="col-span-4 bg-white/5 active:bg-white/15 text-white font-semibold text-xs py-3 px-2 rounded-xl border border-white/15 flex items-center justify-center gap-1.5"
+      >
+        <i data-lucide="navigation" class="w-4 h-4 text-amber-400 shrink-0"></i>
+        <span>Rota Maps</span>
+      </a>
+      <button
+        type="button"
+        id="btn-mobile-bottom-book"
+        class="col-span-8 gold-gradient-bg text-obsidian font-extrabold text-sm py-3 px-4 rounded-xl shadow-lg flex items-center justify-center gap-2 active:scale-95 transition"
+      >
+        <i data-lucide="message-circle" class="w-4 h-4 stroke-[2.5]"></i>
+        <span>Agendar pelo WhatsApp</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       BOTÃO FLUTUANTE DE WHATSAPP (DESKTOP E MOBILE ACIMA DA BARRA)
+       ========================================================================= -->
+  <button
+    type="button"
+    id="btn-floating-whatsapp"
+    aria-label="Agendar horário pelo WhatsApp"
+    class="fixed bottom-20 md:bottom-6 right-4 md:right-6 z-40 bg-[#22C55E] hover:bg-[#16A34A] text-white rounded-full p-3.5 sm:px-5 sm:py-3.5 shadow-2xl whatsapp-pulse flex items-center gap-2.5 active:scale-95 transition"
+  >
+    <i data-lucide="message-circle" class="w-6 h-6 fill-white text-[#22C55E]"></i>
+    <span class="hidden sm:inline font-bold text-sm">Agendar no WhatsApp</span>
+  </button>
+
+  <!-- =========================================================================
+       MODAL 1: AGENDAMENTO RÁPIDO VIA WHATSAPP
+       ========================================================================= -->
+  <div id="booking-modal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div class="bg-[#12141E] border-t sm:border border-amber-500/40 rounded-t-3xl sm:rounded-3xl max-w-lg w-full p-6 sm:p-7 shadow-2xl max-h-[92vh] overflow-y-auto">
+      <div class="flex items-start justify-between gap-4 mb-5">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Atendimento Rápido</span>
+          <h3 class="font-display font-bold text-xl sm:text-2xl text-white mt-0.5">
+            Agendar Horário
+          </h3>
+        </div>
+        <button type="button" id="btn-close-booking-modal" class="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300" aria-label="Fechar modal">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <form id="booking-form" class="space-y-4">
+        <div>
+          <label for="booking-client-name" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">
+            Seu Nome
+          </label>
+          <input
+            type="text"
+            id="booking-client-name"
+            placeholder="Ex: Lucas Almeida"
+            class="w-full bg-obsidian border border-white/15 focus:border-amber-400 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none"
+          />
+        </div>
+
+        <div>
+          <label for="booking-service-select" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">
+            Serviço Desejado
+          </label>
+          <select
+            id="booking-service-select"
+            class="w-full bg-obsidian border border-white/15 focus:border-amber-400 rounded-xl px-4 py-3 text-sm text-white focus:outline-none"
+          >
+            <!-- Preenchido via JS -->
+          </select>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+          <div>
+            <label for="booking-day-select" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">
+              Dia de Preferência
+            </label>
+            <select
+              id="booking-day-select"
+              class="w-full bg-obsidian border border-white/15 focus:border-amber-400 rounded-xl px-4 py-3 text-sm text-white focus:outline-none"
+            >
+              <option value="Hoje">Hoje</option>
+              <option value="Amanhã">Amanhã</option>
+              <option value="Terça-feira">Terça-feira</option>
+              <option value="Quarta-feira">Quarta-feira</option>
+              <option value="Quinta-feira">Quinta-feira</option>
+              <option value="Sexta-feira">Sexta-feira</option>
+              <option value="Sábado">Sábado</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="booking-period-select" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">
+              Período / Horário
+            </label>
+            <select
+              id="booking-period-select"
+              class="w-full bg-obsidian border border-white/15 focus:border-amber-400 rounded-xl px-4 py-3 text-sm text-white focus:outline-none"
+            >
+              <option value="Manhã (09h às 12h)">Manhã (09h às 12h)</option>
+              <option value="Tarde (13h às 17h)">Tarde (13h às 17h)</option>
+              <option value="Final da Tarde / Noite (após 17h)">Final da Tarde / Noite (após 17h)</option>
+              <option value="Qualquer horário disponível">Qualquer horário disponível</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Prévia da mensagem gerada -->
+        <div class="bg-obsidian/90 border border-white/10 rounded-2xl p-3.5">
+          <span class="text-[11px] font-bold uppercase tracking-wider text-amber-400 block mb-1">
+            Mensagem pronta que será enviada:
+          </span>
+          <p id="booking-message-preview" class="text-xs sm:text-sm text-slate-200 italic leading-relaxed"></p>
+        </div>
+
+        <!-- Aviso caso o número de WhatsApp ainda não tenha sido preenchido -->
+        <div id="booking-whatsapp-warning" class="hidden bg-amber-500/10 border border-amber-500/30 rounded-xl p-3 text-xs text-amber-200 space-y-2">
+          <p>
+            <strong>Número de WhatsApp ainda não configurado:</strong> Insira o WhatsApp oficial da barbearia abaixo (apenas números com DDD) para abrir a conversa diretamente, ou copie a mensagem pronta.
+          </p>
+          <div class="flex gap-2">
+            <input
+              type="tel"
+              id="quick-whatsapp-input"
+              placeholder="Ex: 5516999999999"
+              class="flex-1 bg-obsidian border border-amber-500/40 rounded-lg px-3 py-2 text-xs text-white"
+            />
+            <button
+              type="button"
+              id="btn-save-quick-whatsapp"
+              class="bg-amber-400 text-obsidian font-bold px-3 py-2 rounded-lg text-xs"
+            >
+              Salvar Nº
+            </button>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-2.5 pt-2">
+          <button
+            type="submit"
+            id="btn-submit-booking"
+            class="flex-1 bg-[#22C55E] hover:bg-[#16A34A] text-white font-extrabold text-sm sm:text-base py-3.5 px-6 rounded-xl shadow-lg flex items-center justify-center gap-2 transition"
+          >
+            <i data-lucide="send" class="w-4 h-4"></i>
+            <span>Enviar no WhatsApp</span>
+          </button>
+          <button
+            type="button"
+            id="btn-copy-booking-msg"
+            class="bg-white/5 hover:bg-white/10 text-white font-semibold text-xs sm:text-sm py-3.5 px-4 rounded-xl border border-white/15 flex items-center justify-center gap-1.5 transition"
+          >
+            <i data-lucide="copy" class="w-4 h-4 text-amber-400"></i>
+            <span>Copiar Mensagem</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 2: LIGHTBOX DA GALERIA DE FOTOS
+       ========================================================================= -->
+  <div id="lightbox-modal" class="hidden fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="max-w-4xl w-full relative">
+      <div class="flex items-center justify-between mb-3">
+        <div>
+          <h3 id="lightbox-title" class="text-white font-bold text-base sm:text-lg"></h3>
+          <p id="lightbox-subtitle" class="text-xs text-amber-400"></p>
+        </div>
+        <button type="button" id="btn-close-lightbox" class="p-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white" aria-label="Fechar imagem">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+      <div class="rounded-2xl overflow-hidden border border-white/15 bg-black flex items-center justify-center max-h-[75vh]">
+        <img id="lightbox-img" src="assets/img/fade.jpg" alt="Visualização ampliada" class="max-h-[75vh] w-auto object-contain" />
+      </div>
+      <div class="flex items-center justify-between mt-4">
+        <button type="button" id="btn-lightbox-prev" class="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white text-xs sm:text-sm font-semibold flex items-center gap-1.5">
+          <i data-lucide="chevron-left" class="w-4 h-4"></i> Anterior
+        </button>
+        <button type="button" id="btn-lightbox-book" class="gold-gradient-bg text-obsidian font-bold text-xs sm:text-sm px-5 py-2.5 rounded-xl">
+          Agendar este estilo
+        </button>
+        <button type="button" id="btn-lightbox-next" class="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white text-xs sm:text-sm font-semibold flex items-center gap-1.5">
+          Próxima <i data-lucide="chevron-right" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 3: PAINEL EDITOR DE DADOS (CENTRALIZADO + EXPORTADOR VS CODE)
+       ========================================================================= -->
+  <div id="customizer-modal" class="hidden fixed inset-0 z-50 bg-black/85 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div class="bg-[#12141E] border-t sm:border border-amber-500/40 rounded-t-3xl sm:rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl max-h-[92vh] overflow-y-auto">
+      <div class="flex items-start justify-between gap-4 mb-5">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Personalização Centralizada</span>
+          <h3 class="font-display font-bold text-xl sm:text-2xl text-white mt-0.5">
+            Configurar Dados Reais da Barbearia
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-300 mt-1">
+            Preencha abaixo os dados do estabelecimento para atualizar o site instantaneamente ou exportar o bloco <code class="text-amber-300">BARBERSHOP_CONFIG</code> para o VS Code.
+          </p>
+        </div>
+        <button type="button" id="btn-close-customizer" class="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300" aria-label="Fechar configurações">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <form id="customizer-form" class="space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="cfg-name" class="block text-xs font-bold uppercase text-slate-300 mb-1">Nome da Barbearia</label>
+            <input type="text" id="cfg-name" class="w-full bg-obsidian border border-white/15 rounded-xl px-3.5 py-2.5 text-sm text-white" />
+          </div>
+          <div>
+            <label for="cfg-city" class="block text-xs font-bold uppercase text-slate-300 mb-1">Cidade / Bairro (Subtítulo)</label>
+            <input type="text" id="cfg-city" placeholder="Ex: Ribeirão Preto - SP" class="w-full bg-obsidian border border-white/15 rounded-xl px-3.5 py-2.5 text-sm text-white" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="cfg-whatsapp" class="block text-xs font-bold uppercase text-slate-300 mb-1">WhatsApp (com DDD, só números)</label>
+            <input type="text" id="cfg-whatsapp" placeholder="Ex: 5516999999999" class="w-full bg-obsidian border border-white/15 rounded-xl px-3.5 py-2.5 text-sm text-white" />
+          </div>
+          <div>
+            <label for="cfg-phone-display" class="block text-xs font-bold uppercase text-slate-300 mb-1">Telefone Exibido na Tela</label>
+            <input type="text" id="cfg-phone-display" placeholder="Ex: (16) 99999-9999" class="w-full bg-obsidian border border-white/15 rounded-xl px-3.5 py-2.5 text-sm text-white" />
+          </div>
+        </div>
+
+        <div>
+          <label for="cfg-address" class="block text-xs font-bold uppercase text-slate-300 mb-1">Endereço Completo</label>
+          <input type="text" id="cfg-address" placeholder="Ex: Rua Exemplo, 123 - Centro, Cidade - UF" class="w-full bg-obsidian border border-white/15 rounded-xl px-3.5 py-2.5 text-sm text-white" />
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="cfg-instagram" class="block text-xs font-bold uppercase text-slate-300 mb-1">Link do Instagram (opcional)</label>
+            <input type="url" id="cfg-instagram" placeholder="https://instagram.com/suabarbearia" class="w-full bg-obsidian border border-white/15 rounded-xl px-3.5 py-2.5 text-sm text-white" />
+          </div>
+          <div>
+            <label for="cfg-hours-summary" class="block text-xs font-bold uppercase text-slate-300 mb-1">Horário Seg a Sáb (Padrão)</label>
+            <input type="text" id="cfg-hours-summary" placeholder="Ex: 09:00 às 20:00" class="w-full bg-obsidian border border-white/15 rounded-xl px-3.5 py-2.5 text-sm text-white" />
+          </div>
+        </div>
+
+        <!-- Preços rápidos dos 3 serviços principais -->
+        <div class="pt-2 border-t border-white/10">
+          <span class="block text-xs font-bold uppercase text-amber-400 mb-2">Preços dos Serviços Principais (Deixe "Valor sob consulta" se preferir)</span>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div>
+              <label for="cfg-price-corte" class="block text-[11px] text-slate-400 mb-1">Corte Masculino</label>
+              <input type="text" id="cfg-price-corte" placeholder="Ex: R$ 45,00" class="w-full bg-obsidian border border-white/15 rounded-xl px-3 py-2 text-xs text-white" />
+            </div>
+            <div>
+              <label for="cfg-price-barba" class="block text-[11px] text-slate-400 mb-1">Barba Tradicional</label>
+              <input type="text" id="cfg-price-barba" placeholder="Ex: R$ 35,00" class="w-full bg-obsidian border border-white/15 rounded-xl px-3 py-2 text-xs text-white" />
+            </div>
+            <div>
+              <label for="cfg-price-combo" class="block text-[11px] text-slate-400 mb-1">Combo Corte + Barba</label>
+              <input type="text" id="cfg-price-combo" placeholder="Ex: R$ 70,00" class="w-full bg-obsidian border border-white/15 rounded-xl px-3 py-2 text-xs text-white" />
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-white/10">
+          <button
+            type="button"
+            id="btn-copy-vscode-config"
+            class="bg-white/5 hover:bg-white/10 text-amber-300 border border-amber-500/30 font-bold text-xs px-4 py-3 rounded-xl flex items-center gap-2 transition"
+          >
+            <i data-lucide="code-2" class="w-4 h-4"></i>
+            <span>Copiar BARBERSHOP_CONFIG para VS Code</span>
+          </button>
+
+          <div class="flex items-center gap-2.5 ml-auto">
+            <button
+              type="button"
+              id="btn-reset-config"
+              class="text-xs text-slate-400 hover:text-white px-3 py-2.5"
+            >
+              Restaurar Padrão
+            </button>
+            <button
+              type="submit"
+              class="gold-gradient-bg text-obsidian font-extrabold text-sm px-6 py-3 rounded-xl shadow-lg"
+            >
+              Salvar e Atualizar Site
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- TOAST DE FEEDBACK VISUAL -->
+  <div id="toast-notification" class="hidden fixed top-20 right-4 z-50 bg-[#161925] border border-amber-400 text-white px-4 py-3 rounded-xl shadow-2xl flex items-center gap-2.5 text-xs sm:text-sm font-semibold">
+    <i data-lucide="check-circle" class="w-4 h-4 text-amber-400 shrink-0"></i>
+    <span id="toast-message">Ação realizada com sucesso!</span>
+  </div>
+
+  <!-- =========================================================================
+       CONFIGURAÇÃO CENTRALIZADA DA BARBEARIA (FÁCIL DE EDITAR NO VS CODE)
+       ========================================================================= -->
+  <script>
+    /**
+     * ============================================================================
+     * ARQUIVO DE CONFIGURAÇÃO CENTRAL DA BARBEARIA (BARBERSHOP_CONFIG)
+     * ============================================================================
+     * Edite os campos abaixo no VS Code para personalizar nome, endereço, telefone,
+     * WhatsApp, preços dos serviços, horários de funcionamento, fotos e avaliações.
+     */
+    const DEFAULT_BARBERSHOP_CONFIG = {
+      name: "BARBEARIA PREMIUM",
+      citySubtitle: "Grooming & Estilo Masculino",
+      badgeText: "Tradição, Estilo & Precisão Masculina",
+      heroHeadlineHighlight: "Excelência em cada detalhe do seu visual.",
+      heroDescription:
+        "Cortes clássicos e modernos, degradê de alta precisão e barboterapia com toalha quente em um ambiente projetado para quem valoriza atendimento pontual e acabamento impecável.",
+      googleMapsUrl: "https://maps.app.goo.gl/z1PtXUDnDcrpzAR69",
+      address: "Localização oficial vinculada ao Google Maps (edite aqui para exibir Rua, Número, Bairro e Cidade)",
+      whatsappNumber: "", // Exemplo: "5516999999999" (apenas números com DDI 55 e DDD)
+      phoneDisplay: "Consulte ou adicione o WhatsApp oficial",
+      instagramUrl: "", // Exemplo: "https://instagram.com/barbearia"
+      statusText: "Horários Configuráveis",
+
+      // Catálogo de Serviços (Altere "Valor sob consulta" para o preço confirmado, ex: "R$ 45,00")
+      services: [
+        {
+          id: "corte-moderno",
+          category: "corte",
+          name: "Corte Masculino (Social ou Degradê)",
+          duration: "45 min",
+          price: "Valor sob consulta",
+          description: "Corte personalizado na tesoura ou máquina (low, mid ou high fade), lavagem refrescante e finalização com pomada modeladora.",
+          image: "assets/img/fade.jpg",
+          popular: true
+        },
+        {
+          id: "barba-toalha-quente",
+          category: "barba",
+          name: "Barba Tradicional & Toalha Quente",
+          duration: "35 min",
+          price: "Valor sob consulta",
+          description: "Ritual clássico com toalha aquecida, alinhamento geométrico na navalha, óleo essencial e balm pós-barba calmante.",
+          image: "assets/img/beard.jpg",
+          popular: true
+        },
+        {
+          id: "combo-corte-barba",
+          category: "combo",
+          name: "Combo Completo (Corte + Barba)",
+          duration: "1h 15min",
+          price: "Valor sob consulta",
+          description: "A experiência completa de renovação do visual: corte sob medida aliado ao ritual de barboterapia com toalha quente.",
+          image: "assets/img/exec.jpg",
+          popular: true
+        },
+        {
+          id: "acabamento-pezinho",
+          category: "acabamento",
+          name: "Acabamento, Contorno & Pezinho",
+          duration: "20 min",
+          price: "Valor sob consulta",
+          description: "Manutenção rápida dos contornos do corte e alinhamento da nuca e costeletas na máquina e navalha.",
+          image: "assets/img/tools.jpg",
+          popular: false
+        },
+        {
+          id: "sobrancelha-masculina",
+          category: "acabamento",
+          name: "Alinhamento de Sobrancelha na Navalha",
+          duration: "15 min",
+          price: "Valor sob consulta",
+          description: "Limpeza discreta e natural dos fios excedentes para realçar a expressão masculina sem perder a naturalidade.",
+          image: "assets/img/fade.jpg",
+          popular: false
+        },
+        {
+          id: "hidratacao-barba-cabelo",
+          category: "acabamento",
+          name: "Hidratação Capilar & Esfoliação Facial",
+          duration: "30 min",
+          price: "Valor sob consulta",
+          description: "Tratamento revitalizante para fios ressecados e limpeza profunda da pele do rosto para evitar pelos encravados.",
+          image: "assets/img/beard.jpg",
+          popular: false
+        }
+      ],
+
+      // Galeria de Fotos (isReference: true exibe aviso transparente de imagem ilustrativa)
+      gallery: [
+        {
+          id: "gal-1",
+          category: "cortes",
+          title: "Degradê de Alta Precisão (Skin Fade)",
+          subtitle: "Transição suave e acabamento na navalha",
+          image: "assets/img/fade.jpg",
+          isReference: true
+        },
+        {
+          id: "gal-2",
+          category: "barba",
+          title: "Ritual de Barba com Toalha Quente",
+          subtitle: "Alinhamento clássico e hidratação profunda",
+          image: "assets/img/beard.jpg",
+          isReference: true
+        },
+        {
+          id: "gal-3",
+          category: "ambiente",
+          title: "Ambiente Masculino & Confortável",
+          subtitle: "Estrutura planejada para uma experiência única",
+          image: "assets/img/hero.jpg",
+          isReference: true
+        },
+        {
+          id: "gal-4",
+          category: "cortes",
+          title: "Corte Executivo & Barba Alinhada",
+          subtitle: "Visagismo adaptado ao seu estilo diário",
+          image: "assets/img/exec.jpg",
+          isReference: true
+        },
+        {
+          id: "gal-5",
+          category: "ambiente",
+          title: "Bancada & Equipamentos Profissionais",
+          subtitle: "Higiene rigorosa e produtos de primeira linha",
+          image: "assets/img/tools.jpg",
+          isReference: true
+        }
+      ],
+
+      // Avaliações de Clientes (Sem depoimentos inventados; espaço pronto para colar avaliações reais do Google Maps)
+      reviews: [
+        {
+          author: "Avaliação Oficial no Google Maps",
+          role: "Reputação Verificável",
+          rating: 5,
+          date: "Google Maps",
+          comment: "Para preservar 100% de autenticidade, nenhum depoimento foi inventado. Clique em 'Ver Avaliações no Google Maps' para ler os comentários reais dos clientes ou insira-os em BARBERSHOP_CONFIG.",
+          isPlaceholder: true
+        },
+        {
+          author: "Espaço para Depoimento Real #1",
+          role: "Cliente Verificado",
+          rating: 5,
+          date: "Editável no VS Code",
+          comment: "Copie um comentário real da ficha do Google Maps da barbearia e cole no objeto BARBERSHOP_CONFIG.reviews para exibi-lo neste card.",
+          isPlaceholder: true
+        },
+        {
+          author: "Espaço para Depoimento Real #2",
+          role: "Cliente Verificado",
+          rating: 5,
+          date: "Editável no VS Code",
+          comment: "Copie um segundo comentário real da ficha do Google Maps da barbearia (destacando atendimento, ambiente ou corte) e cole em BARBERSHOP_CONFIG.reviews.",
+          isPlaceholder: true
+        }
+      ],
+
+      // Horários de Funcionamento (dayIndex: 0 = Domingo, 1 = Segunda, ..., 6 = Sábado)
+      hours: [
+        { dayIndex: 1, dayName: "Segunda-feira", hours: "Horário a confirmar" },
+        { dayIndex: 2, dayName: "Terça-feira", hours: "09:00 às 20:00 (Configurável)" },
+        { dayIndex: 3, dayName: "Quarta-feira", hours: "09:00 às 20:00 (Configurável)" },
+        { dayIndex: 4, dayName: "Quinta-feira", hours: "09:00 às 20:00 (Configurável)" },
+        { dayIndex: 5, dayName: "Sexta-feira", hours: "09:00 às 20:00 (Configurável)" },
+        { dayIndex: 6, dayName: "Sábado", hours: "08:30 às 18:00 (Configurável)" },
+        { dayIndex: 0, dayName: "Domingo", hours: "Fechado" }
+      ]
+    };
+
+    // Estado da Aplicação
+    let BARBERSHOP_CONFIG = JSON.parse(JSON.stringify(DEFAULT_BARBERSHOP_CONFIG));
+    let activeServiceFilter = "todos";
+    let activeGalleryFilter = "todos";
+    let currentLightboxIndex = 0;
+
+    // Carregar configuração salva no navegador (se houver)
+    function loadSavedConfig() {
+      try {
+        const saved = localStorage.getItem("barbershop_custom_config_v1");
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          BARBERSHOP_CONFIG = Object.assign({}, DEFAULT_BARBERSHOP_CONFIG, parsed);
+        }
+      } catch (err) {
+        // Ignora erro caso localStorage esteja restrito
+      }
+    }
+
+    function saveConfigToStorage() {
+      try {
+        localStorage.setItem("barbershop_custom_config_v1", JSON.stringify(BARBERSHOP_CONFIG));
+      } catch (err) {
+        // Ignora erro caso localStorage esteja restrito
+      }
+    }
+
+    // Exibir Toast de feedback
+    let toastTimer = null;
+    function showToast(message) {
+      const toast = document.getElementById("toast-notification");
+      const msgEl = document.getElementById("toast-message");
+      if (!toast || !msgEl) return;
+      msgEl.textContent = message;
+      toast.classList.remove("hidden");
+      if (toastTimer) clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.add("hidden");
+      }, 3400);
+    }
+
+    // Copiar texto para a área de transferência com fallback seguro
+    function copyTextToClipboard(text, successMessage) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+          showToast(successMessage);
+        }).catch(() => {
+          fallbackCopy(text, successMessage);
+        });
+      } else {
+        fallbackCopy(text, successMessage);
+      }
+    }
+
+    function fallbackCopy(text, successMessage) {
+      try {
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        ta.style.position = "fixed";
+        ta.style.opacity = "0";
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        document.body.removeChild(ta);
+        showToast(successMessage);
+      } catch (e) {
+        showToast("Não foi possível copiar automaticamente.");
+      }
+    }
+
+    // Renderizar Dados Gerais na Página
+    function renderGeneralInfo() {
+      document.title = `${BARBERSHOP_CONFIG.name} | Cortes Masculinos, Barba & Grooming`;
+      document.getElementById("header-brand-name").textContent = BARBERSHOP_CONFIG.name;
+      document.getElementById("header-brand-city").textContent = BARBERSHOP_CONFIG.citySubtitle;
+      document.getElementById("hero-badge-text").textContent = BARBERSHOP_CONFIG.badgeText;
+      document.getElementById("hero-title-main").textContent = BARBERSHOP_CONFIG.name;
+      document.getElementById("hero-title-highlight").textContent = BARBERSHOP_CONFIG.heroHeadlineHighlight;
+      document.getElementById("hero-description").textContent = BARBERSHOP_CONFIG.heroDescription;
+
+      document.getElementById("location-title").textContent = BARBERSHOP_CONFIG.name;
+      document.getElementById("location-address-text").textContent = BARBERSHOP_CONFIG.address;
+      document.getElementById("location-phone-text").textContent =
+        BARBERSHOP_CONFIG.phoneDisplay || "Consulte pelo WhatsApp";
+
+      document.getElementById("footer-brand-name").textContent = BARBERSHOP_CONFIG.name;
+      document.getElementById("footer-copy-name").textContent = BARBERSHOP_CONFIG.name;
+      document.getElementById("footer-address").textContent = BARBERSHOP_CONFIG.address;
+      document.getElementById("footer-phone").textContent =
+        BARBERSHOP_CONFIG.phoneDisplay || "Agendamento via WhatsApp";
+      document.getElementById("footer-year").textContent = new Date().getFullYear();
+
+      // Atualizar iframe do Google Maps se um endereço real foi preenchido
+      const mapIframe = document.getElementById("google-maps-iframe");
+      if (
+        BARBERSHOP_CONFIG.address &&
+        !BARBERSHOP_CONFIG.address.includes("edite aqui") &&
+        mapIframe
+      ) {
+        const query = encodeURIComponent(`${BARBERSHOP_CONFIG.name} ${BARBERSHOP_CONFIG.address}`);
+        mapIframe.src = `https://www.google.com/maps?q=${query}&output=embed`;
+      }
+
+      // Redes sociais no rodapé (exibidas apenas se configuradas)
+      const socialsContainer = document.getElementById("footer-socials");
+      if (socialsContainer) {
+        if (BARBERSHOP_CONFIG.instagramUrl && BARBERSHOP_CONFIG.instagramUrl.trim() !== "") {
+          socialsContainer.innerHTML = `
+            <a href="${BARBERSHOP_CONFIG.instagramUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 font-semibold">
+              <i data-lucide="instagram" class="w-4 h-4"></i>
+              <span>Siga nosso Instagram Oficial</span>
+            </a>
+          `;
+        } else {
+          socialsContainer.innerHTML = `
+            <p class="text-xs text-slate-500">
+              Links de redes sociais preparados para ativação assim que informados em <code class="text-slate-400">BARBERSHOP_CONFIG</code>.
+            </p>
+          `;
+        }
+      }
+    }
+
+    // Renderizar Serviços
+    function renderServices() {
+      const grid = document.getElementById("services-grid");
+      const select = document.getElementById("booking-service-select");
+      if (!grid) return;
+
+      const filtered = BARBERSHOP_CONFIG.services.filter((s) =>
+        activeServiceFilter === "todos" ? true : s.category === activeServiceFilter
+      );
+
+      grid.innerHTML = filtered
+        .map(
+          (service) => `
+        <article class="card-luxury rounded-2xl overflow-hidden flex flex-col justify-between group">
+          <div>
+            <div class="relative h-48 overflow-hidden bg-black">
+              <img
+                src="${service.image}"
+                alt="${service.name}"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#12141E] via-transparent to-black/40"></div>
+              <div class="absolute top-3 left-3 flex items-center gap-2">
+                ${
+                  service.popular
+                    ? `<span class="px-2.5 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wider bg-amber-400 text-obsidian shadow">Mais Pedido</span>`
+                    : ""
+                }
+                <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-black/70 backdrop-blur-md text-slate-200 border border-white/15">
+                  ${service.duration}
+                </span>
+              </div>
+              <div class="absolute bottom-3 right-3">
+                <span class="px-3 py-1 rounded-lg text-xs sm:text-sm font-extrabold bg-obsidian/90 backdrop-blur-md text-amber-300 border border-amber-500/40">
+                  ${service.price}
+                </span>
+              </div>
+            </div>
+
+            <div class="p-5 sm:p-6">
+              <h3 class="font-display font-bold text-lg sm:text-xl text-white group-hover:text-amber-300 transition">
+                ${service.name}
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
+                ${service.description}
+              </p>
+            </div>
+          </div>
+
+          <div class="px-5 pb-5 sm:px-6 sm:pb-6 pt-2">
+            <button
+              type="button"
+              data-book-service="${service.name}"
+              class="btn-service-card-book w-full bg-white/5 hover:bg-amber-400 hover:text-obsidian text-white font-bold text-xs sm:text-sm py-3 px-4 rounded-xl border border-amber-500/30 flex items-center justify-center gap-2 active:scale-95 transition"
+            >
+              <i data-lucide="calendar-check" class="w-4 h-4"></i>
+              <span>Agendar este serviço</span>
+            </button>
+          </div>
+        </article>
+      `
+        )
+        .join("");
+
+      // Preencher Select do Modal de Agendamento
+      if (select) {
+        const currentVal = select.value;
+        select.innerHTML = BARBERSHOP_CONFIG.services
+          .map(
+            (s) =>
+              `<option value="${s.name}">${s.name} (${s.price})</option>`
+          )
+          .join("");
+        if (currentVal) {
+          select.value = currentVal;
+        }
+      }
+
+      // Eventos dos botões "Agendar este serviço"
+      document.querySelectorAll(".btn-service-card-book").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const serviceName = btn.getAttribute("data-book-service");
+          openBookingModal(serviceName);
+        });
+      });
+
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    // Renderizar Galeria de Fotos
+    function getFilteredGallery() {
+      return BARBERSHOP_CONFIG.gallery.filter((item) =>
+        activeGalleryFilter === "todos" ? true : item.category === activeGalleryFilter
+      );
+    }
+
+    function renderGallery() {
+      const grid = document.getElementById("gallery-grid");
+      if (!grid) return;
+
+      const items = getFilteredGallery();
+      grid.innerHTML = items
+        .map(
+          (item, idx) => `
+        <div
+          data-lightbox-idx="${idx}"
+          class="gallery-card-item group relative rounded-2xl overflow-hidden border border-white/15 bg-obsidian cursor-pointer h-64 sm:h-72 shadow-xl"
+        >
+          <img
+            src="${item.image}"
+            alt="${item.title}"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-between p-4">
+            <div class="flex justify-between items-center">
+              <span class="px-2.5 py-1 rounded-md text-[10px] font-semibold bg-black/75 text-amber-300 border border-amber-500/30">
+                ${item.isReference ? "Imagem de Referência" : "Foto Oficial"}
+              </span>
+              <span class="w-8 h-8 rounded-lg bg-black/70 text-white flex items-center justify-center">
+                <i data-lucide="maximize-2" class="w-4 h-4"></i>
+              </span>
+            </div>
+            <div>
+              <h3 class="text-white font-bold text-base">${item.title}</h3>
+              <p class="text-xs text-slate-300 mt-0.5">${item.subtitle}</p>
+            </div>
+          </div>
+        </div>
+      `
+        )
+        .join("");
+
+      document.querySelectorAll(".gallery-card-item").forEach((card) => {
+        card.addEventListener("click", () => {
+          const idx = parseInt(card.getAttribute("data-lightbox-idx") || "0", 10);
+          openLightbox(idx);
+        });
+      });
+
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    // Renderizar Avaliações
+    function renderReviews() {
+      const grid = document.getElementById("reviews-grid");
+      if (!grid) return;
+
+      grid.innerHTML = BARBERSHOP_CONFIG.reviews
+        .map(
+          (rev) => `
+        <article class="card-luxury rounded-2xl p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <div class="flex items-center gap-1 text-amber-400">
+                ${Array.from({ length: rev.rating || 5 })
+                  .map(() => `<i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>`)
+                  .join("")}
+              </div>
+              <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full ${
+                rev.isPlaceholder
+                  ? "bg-amber-500/15 text-amber-300 border border-amber-500/30"
+                  : "bg-emerald-500/15 text-emerald-300"
+              }">
+                ${rev.date}
+              </span>
+            </div>
+            <p class="text-slate-200 text-sm leading-relaxed mb-5">
+              "${rev.comment}"
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-white/10">
+            <div class="w-9 h-9 rounded-full bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-300 font-bold text-sm">
+              ${rev.author.charAt(0).toUpperCase()}
+            </div>
+            <div>
+              <h3 class="text-xs sm:text-sm font-bold text-white">${rev.author}</h3>
+              <span class="text-[11px] text-slate-400 block">${rev.role}</span>
+            </div>
+          </div>
+        </article>
+      `
+        )
+        .join("");
+
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    // Renderizar Horários de Funcionamento (destacando o dia atual)
+    function renderHours() {
+      const list = document.getElementById("hours-list");
+      const badge = document.getElementById("schedule-status-badge");
+      if (!list) return;
+
+      const todayIndex = new Date().getDay(); // 0 = Domingo, 1 = Segunda...
+      if (badge) {
+        badge.innerHTML = `
+          <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+          <span>${BARBERSHOP_CONFIG.statusText || "Consulte Disponibilidade"}</span>
+        `;
+      }
+
+      list.innerHTML = BARBERSHOP_CONFIG.hours
+        .map((item) => {
+          const isToday = item.dayIndex === todayIndex;
+          return `
+          <div class="flex items-center justify-between px-4 py-3 rounded-xl border ${
+            isToday
+              ? "bg-amber-500/15 border-amber-400/50 text-white"
+              : "bg-white/[0.02] border-white/10 text-slate-300"
+          }">
+            <div class="flex items-center gap-2">
+              <span class="text-xs sm:text-sm font-bold ${isToday ? "text-amber-300" : "text-white"}">
+                ${item.dayName}
+              </span>
+              ${
+                isToday
+                  ? `<span class="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded bg-amber-400 text-obsidian">Hoje</span>`
+                  : ""
+              }
+            </div>
+            <span class="text-xs sm:text-sm font-medium ${
+              item.hours.toLowerCase().includes("fechado")
+                ? "text-rose-400"
+                : isToday
+                ? "text-amber-200 font-bold"
+                : "text-slate-300"
+            }">
+              ${item.hours}
+            </span>
+          </div>
+        `;
+        })
+        .join("");
+    }
+
+    // Construir mensagem de agendamento para o WhatsApp
+    function buildWhatsAppMessage() {
+      const clientName = (document.getElementById("booking-client-name")?.value || "").trim();
+      const service = document.getElementById("booking-service-select")?.value || "Corte Masculino";
+      const day = document.getElementById("booking-day-select")?.value || "Hoje";
+      const period = document.getElementById("booking-period-select")?.value || "Tarde";
+
+      const greeting = clientName
+        ? `Olá, equipe da *${BARBERSHOP_CONFIG.name}*! Me chamo *${clientName}*.`
+        : `Olá, equipe da *${BARBERSHOP_CONFIG.name}*!`;
+
+      return `${greeting} Gostaria de verificar a disponibilidade para agendar:\n• *Serviço:* ${service}\n• *Dia de preferência:* ${day}\n• *Período:* ${period}\n\nPodem me informar os horários disponíveis?`;
+    }
+
+    function updateBookingPreview() {
+      const previewEl = document.getElementById("booking-message-preview");
+      const warningEl = document.getElementById("booking-whatsapp-warning");
+      if (previewEl) {
+        previewEl.textContent = buildWhatsAppMessage();
+      }
+      if (warningEl) {
+        const cleanNum = (BARBERSHOP_CONFIG.whatsappNumber || "").replace(/\D/g, "");
+        if (!cleanNum) {
+          warningEl.classList.remove("hidden");
+        } else {
+          warningEl.classList.add("hidden");
+        }
+      }
+    }
+
+    function openBookingModal(preselectedService) {
+      const modal = document.getElementById("booking-modal");
+      const select = document.getElementById("booking-service-select");
+      if (preselectedService && select) {
+        select.value = preselectedService;
+      }
+      updateBookingPreview();
+      if (modal) {
+        modal.classList.remove("hidden");
+      }
+    }
+
+    function closeBookingModal() {
+      const modal = document.getElementById("booking-modal");
+      if (modal) modal.classList.add("hidden");
+    }
+
+    // Lightbox da Galeria
+    function openLightbox(index) {
+      const items = getFilteredGallery();
+      if (!items.length) return;
+      currentLightboxIndex = (index + items.length) % items.length;
+      const item = items[currentLightboxIndex];
+
+      document.getElementById("lightbox-img").src = item.image;
+      document.getElementById("lightbox-title").textContent = item.title;
+      document.getElementById("lightbox-subtitle").textContent = `${item.subtitle} • ${
+        item.isReference ? "Imagem ilustrativa de referência" : "Foto oficial"
+      }`;
+      document.getElementById("lightbox-modal").classList.remove("hidden");
+    }
+
+    function closeLightbox() {
+      document.getElementById("lightbox-modal").classList.add("hidden");
+    }
+
+    // Customizer Modal (Modo Proposta Comercial / VS Code Helper)
+    function openCustomizerModal() {
+      document.getElementById("cfg-name").value = BARBERSHOP_CONFIG.name || "";
+      document.getElementById("cfg-city").value = BARBERSHOP_CONFIG.citySubtitle || "";
+      document.getElementById("cfg-whatsapp").value = BARBERSHOP_CONFIG.whatsappNumber || "";
+      document.getElementById("cfg-phone-display").value = BARBERSHOP_CONFIG.phoneDisplay || "";
+      document.getElementById("cfg-address").value = BARBERSHOP_CONFIG.address || "";
+      document.getElementById("cfg-instagram").value = BARBERSHOP_CONFIG.instagramUrl || "";
+      document.getElementById("cfg-hours-summary").value =
+        BARBERSHOP_CONFIG.hours[1]?.hours || "09:00 às 20:00";
+
+      document.getElementById("cfg-price-corte").value =
+        BARBERSHOP_CONFIG.services[0]?.price || "Valor sob consulta";
+      document.getElementById("cfg-price-barba").value =
+        BARBERSHOP_CONFIG.services[1]?.price || "Valor sob consulta";
+      document.getElementById("cfg-price-combo").value =
+        BARBERSHOP_CONFIG.services[2]?.price || "Valor sob consulta";
+
+      document.getElementById("customizer-modal").classList.remove("hidden");
+    }
+
+    function closeCustomizerModal() {
+      document.getElementById("customizer-modal").classList.add("hidden");
+    }
+
+    function renderAll() {
+      renderGeneralInfo();
+      renderServices();
+      renderGallery();
+      renderReviews();
+      renderHours();
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    // Inicialização e Eventos DOM
+    window.addEventListener("DOMContentLoaded", () => {
+      loadSavedConfig();
+      renderAll();
+
+      // Banner superior
+      document.getElementById("btn-close-banner")?.addEventListener("click", () => {
+        document.getElementById("proposal-banner")?.classList.add("hidden");
+      });
+
+      // Menu Mobile
+      const mobileMenuBtn = document.getElementById("btn-mobile-menu");
+      const mobileDrawer = document.getElementById("mobile-menu-drawer");
+      mobileMenuBtn?.addEventListener("click", () => {
+        const isHidden = mobileDrawer.classList.contains("hidden");
+        if (isHidden) {
+          mobileDrawer.classList.remove("hidden");
+          mobileMenuBtn.setAttribute("aria-expanded", "true");
+        } else {
+          mobileDrawer.classList.add("hidden");
+          mobileMenuBtn.setAttribute("aria-expanded", "false");
+        }
+      });
+
+      document.querySelectorAll(".mobile-nav-link").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileDrawer?.classList.add("hidden");
+          mobileMenuBtn?.setAttribute("aria-expanded", "false");
+        });
+      });
+
+      // Botões que abrem o Modal de Agendamento
+      [
+        "btn-header-book",
+        "btn-drawer-book",
+        "btn-hero-book",
+        "btn-about-book",
+        "btn-hours-book",
+        "btn-cta-final-book",
+        "btn-mobile-bottom-book",
+        "btn-floating-whatsapp"
+      ].forEach((id) => {
+        document.getElementById(id)?.addEventListener("click", () => {
+          mobileDrawer?.classList.add("hidden");
+          openBookingModal();
+        });
+      });
+
+      document.getElementById("btn-close-booking-modal")?.addEventListener("click", closeBookingModal);
+
+      // Atualizar prévia da mensagem em tempo real
+      ["booking-client-name", "booking-service-select", "booking-day-select", "booking-period-select"].forEach(
+        (id) => {
+          document.getElementById(id)?.addEventListener("input", updateBookingPreview);
+          document.getElementById(id)?.addEventListener("change", updateBookingPreview);
+        }
+      );
+
+      // Salvar WhatsApp rápido dentro do modal de agendamento
+      document.getElementById("btn-save-quick-whatsapp")?.addEventListener("click", () => {
+        const raw = (document.getElementById("quick-whatsapp-input")?.value || "").replace(/\D/g, "");
+        if (!raw) {
+          showToast("Digite o número com DDD (ex: 5516999999999).");
+          return;
+        }
+        BARBERSHOP_CONFIG.whatsappNumber = raw;
+        BARBERSHOP_CONFIG.phoneDisplay = `+${raw}`;
+        saveConfigToStorage();
+        renderAll();
+        updateBookingPreview();
+        showToast("Número de WhatsApp salvo com sucesso!");
+      });
+
+      // Enviar agendamento para o WhatsApp
+      document.getElementById("booking-form")?.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const msg = buildWhatsAppMessage();
+        const cleanNum = (BARBERSHOP_CONFIG.whatsappNumber || "").replace(/\D/g, "");
+        if (cleanNum) {
+          const url = `https://wa.me/${cleanNum}?text=${encodeURIComponent(msg)}`;
+          window.open(url, "_blank", "noopener,noreferrer");
+          closeBookingModal();
+        } else {
+          copyTextToClipboard(
+            msg,
+            "Mensagem copiada! Configure o WhatsApp da barbearia para abrir direto no app."
+          );
+        }
+      });
+
+      document.getElementById("btn-copy-booking-msg")?.addEventListener("click", () => {
+        copyTextToClipboard(buildWhatsAppMessage(), "Mensagem de agendamento copiada!");
+      });
+
+      // Filtros de Serviços
+      document.querySelectorAll(".service-filter-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          activeServiceFilter = btn.getAttribute("data-service-filter") || "todos";
+          document.querySelectorAll(".service-filter-btn").forEach((b) => {
+            b.className =
+              "service-filter-btn shrink-0 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white/5 text-slate-300 hover:bg-white/10 border border-white/10 transition";
+          });
+          btn.className =
+            "service-filter-btn shrink-0 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-amber-400 text-obsidian transition";
+          renderServices();
+        });
+      });
+
+      // Filtros da Galeria
+      document.querySelectorAll(".gallery-filter-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          activeGalleryFilter = btn.getAttribute("data-gallery-filter") || "todos";
+          document.querySelectorAll(".gallery-filter-btn").forEach((b) => {
+            b.className =
+              "gallery-filter-btn shrink-0 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white/5 text-slate-300 hover:bg-white/10 border border-white/10 transition";
+          });
+          btn.className =
+            "gallery-filter-btn shrink-0 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-amber-400 text-obsidian transition";
+          renderGallery();
+        });
+      });
+
+      // Controles do Lightbox
+      document.getElementById("btn-close-lightbox")?.addEventListener("click", closeLightbox);
+      document.getElementById("btn-lightbox-prev")?.addEventListener("click", () => {
+        openLightbox(currentLightboxIndex - 1);
+      });
+      document.getElementById("btn-lightbox-next")?.addEventListener("click", () => {
+        openLightbox(currentLightboxIndex + 1);
+      });
+      document.getElementById("btn-lightbox-book")?.addEventListener("click", () => {
+        const items = getFilteredGallery();
+        const item = items[currentLightboxIndex];
+        closeLightbox();
+        openBookingModal(item ? item.title : undefined);
+      });
+
+      // Copiar Link do Google Maps
+      document.getElementById("btn-copy-maps-link")?.addEventListener("click", () => {
+        copyTextToClipboard(
+          BARBERSHOP_CONFIG.googleMapsUrl,
+          "Link da localização no Google Maps copiado!"
+        );
+      });
+
+      // Botões que abrem o Painel de Personalização
+      [
+        "btn-open-customizer-top",
+        "btn-services-edit-prices",
+        "btn-reviews-customize",
+        "btn-footer-customizer"
+      ].forEach((id) => {
+        document.getElementById(id)?.addEventListener("click", openCustomizerModal);
+      });
+
+      document.getElementById("btn-close-customizer")?.addEventListener("click", closeCustomizerModal);
+
+      // Salvar Personalização
+      document.getElementById("customizer-form")?.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const nameVal = document.getElementById("cfg-name").value.trim();
+        const cityVal = document.getElementById("cfg-city").value.trim();
+        const whatsVal = document.getElementById("cfg-whatsapp").value.replace(/\D/g, "");
+        const phoneVal = document.getElementById("cfg-phone-display").value.trim();
+        const addrVal = document.getElementById("cfg-address").value.trim();
+        const instaVal = document.getElementById("cfg-instagram").value.trim();
+        const hoursVal = document.getElementById("cfg-hours-summary").value.trim();
+
+        if (nameVal) BARBERSHOP_CONFIG.name = nameVal;
+        if (cityVal) BARBERSHOP_CONFIG.citySubtitle = cityVal;
+        BARBERSHOP_CONFIG.whatsappNumber = whatsVal;
+        if (phoneVal) BARBERSHOP_CONFIG.phoneDisplay = phoneVal;
+        if (addrVal) BARBERSHOP_CONFIG.address = addrVal;
+        BARBERSHOP_CONFIG.instagramUrl = instaVal;
+
+        if (hoursVal) {
+          BARBERSHOP_CONFIG.hours = BARBERSHOP_CONFIG.hours.map((h) =>
+            h.dayIndex >= 1 && h.dayIndex <= 6 ? { ...h, hours: hoursVal } : h
+          );
+          BARBERSHOP_CONFIG.statusText = `Atendimento: ${hoursVal}`;
+        }
+
+        const pCorte = document.getElementById("cfg-price-corte").value.trim();
+        const pBarba = document.getElementById("cfg-price-barba").value.trim();
+        const pCombo = document.getElementById("cfg-price-combo").value.trim();
+        if (pCorte && BARBERSHOP_CONFIG.services[0]) BARBERSHOP_CONFIG.services[0].price = pCorte;
+        if (pBarba && BARBERSHOP_CONFIG.services[1]) BARBERSHOP_CONFIG.services[1].price = pBarba;
+        if (pCombo && BARBERSHOP_CONFIG.services[2]) BARBERSHOP_CONFIG.services[2].price = pCombo;
+
+        saveConfigToStorage();
+        renderAll();
+        closeCustomizerModal();
+        showToast("Dados da barbearia atualizados com sucesso!");
+      });
+
+      // Restaurar Padrão
+      document.getElementById("btn-reset-config")?.addEventListener("click", () => {
+        BARBERSHOP_CONFIG = JSON.parse(JSON.stringify(DEFAULT_BARBERSHOP_CONFIG));
+        try {
+          localStorage.removeItem("barbershop_custom_config_v1");
+        } catch (e) {}
+        renderAll();
+        closeCustomizerModal();
+        showToast("Configurações restauradas para o padrão.");
+      });
+
+      // Copiar código BARBERSHOP_CONFIG para o VS Code
+      document.getElementById("btn-copy-vscode-config")?.addEventListener("click", () => {
+        const exportConfig = JSON.parse(JSON.stringify(BARBERSHOP_CONFIG));
+        const codeBlock = `const DEFAULT_BARBERSHOP_CONFIG = ${JSON.stringify(exportConfig, null, 2)};`;
+        copyTextToClipboard(
+          codeBlock,
+          "Bloco BARBERSHOP_CONFIG copiado! Cole no seu arquivo no VS Code."
+        );
+      });
+
+      // Fechar modais com tecla Escape
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          closeBookingModal();
+          closeLightbox();
+          closeCustomizerModal();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
